@@ -1,0 +1,6 @@
+crawl4ai>=0.7.8
+fastapi[standard]>=0.128.0
+openai>=2.14.0
+pydantic-ai>=1.40.0
+python-dotenv>=1.2.1
+uvicorn>=0.34.0

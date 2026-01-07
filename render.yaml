@@ -1,0 +1,24 @@
+services:
+  # Backend Service (Python/FastAPI)
+  - type: web
+    name: url-to-blog-backend
+    runtime: python
+    buildCommand: "bash ./app/build.sh"
+    startCommand: "python server.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: OPENROUTER_API_KEY
+        sync: false
+    autoDeploy: true
+
+  # Frontend Service (Node.js/SvelteKit)
+  - type: web
+    name: url-to-blog-frontend
+    runtime: node
+    buildCommand: "cd frontend && npm install && npm run build"
+    startCommand: "cd frontend && npm run preview -- --host --port $PORT"
+    envVars:
+      - key: NODE_VERSION
+        value: 20.10.0
+    autoDeploy: true
