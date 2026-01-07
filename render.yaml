@@ -3,6 +3,7 @@ services:
   - type: web
     name: url-to-blog-backend
     runtime: python
+    plan: free
     buildCommand: "bash ./app/build.sh"
     startCommand: "python server.py"
     envVars:
@@ -16,6 +17,7 @@ services:
   - type: web
     name: url-to-blog-frontend
     runtime: node
+    plan: free
     buildCommand: "cd frontend && npm install && npm run build"
     startCommand: "cd frontend && npm run preview -- --host --port $PORT"
     envVars:
